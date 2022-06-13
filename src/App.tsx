@@ -10,7 +10,7 @@ function App() {      //компонента должна быть написа�
     //должна вернуть JSX
     return (
         <div>
-            this is APP component
+            <AppTitle/>
             <Rating/>
             <Accordion/>
 
@@ -30,16 +30,40 @@ function Rating() {
     )
 }
 
+function AppTitle() {
+    return (
+        <>
+            this is APP component
+        </>
+    )
+}
 
 function Accordion() {
     return (
         <div>
-            <h3>menu</h3>
+            <AccordionTitle/>
+
+            <AccordionBody/>
+        </div>
+    )
+}
+
+function AccordionBody() {
+    return (
+        <div>
             <ul>
                 <li>1</li>
                 <li>2</li>
                 <li>3</li>
             </ul>
+        </div>
+    )
+}
+
+function AccordionTitle() {
+    return (
+        <div>
+            <h3>menu</h3>
         </div>
     )
 }
