@@ -14,8 +14,8 @@ function App() {      //компонента должна быть написа�
             <PageTitle title={"this is APP component"}/>
             <PageTitle title={" APP "}/>
             <Rating value={2}/>
-            <Accordion title={"Menu"}/>
-            <Accordion title={"Seting"}/>
+            <Accordion titleValue={"Menu"} collapsed={true}/>
+            <Accordion titleValue={"User"} collapsed={false}/>
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
@@ -25,6 +25,10 @@ function App() {      //компонента должна быть написа�
 
         </div>
     );
+}
+
+type PageTitlePropsType = {
+    title: String
 }
 
 function PageTitle(props: any) {
