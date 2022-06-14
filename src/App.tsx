@@ -14,8 +14,8 @@ function App() {      //компонента должна быть написа�
             <PageTitle title={"this is APP component"}/>
             <PageTitle title={" APP "}/>
             <Rating value={2}/>
-            <Accordion title={"menu"}/>
-            <Accordion title={"seting"}/>
+            <Accordion title={"Menu"}/>
+            <Accordion title={"Seting"}/>
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>

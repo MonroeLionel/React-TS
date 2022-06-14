@@ -1,5 +1,6 @@
 import React from "react";
 
+//123
 export function Rating(props: any) {
 
     if (props.value === 1) {
