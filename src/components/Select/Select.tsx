@@ -1,4 +1,4 @@
-import React from "react";
+import React, {MouseEventHandler, useState} from "react";
 
 
 type SelectPropsType = {
@@ -8,10 +8,23 @@ type SelectPropsType = {
 }
 
 export function Select(props: SelectPropsType) {
+   const [titleValue, setTitleValue] = useState<string>(props.items[0].title)
+   const [collapsed, setCollapsed] = useState<boolean>(true)
+
+   let selectedName = (e: React.MouseEvent<HTMLDivElement>) => {
+      console.log(e.currentTarget.textContent)
+      if (e.currentTarget.textContent) {
+         setTitleValue(e.currentTarget.textContent)
+         collapsedHandler()
+      }
+   }
+   let collapsedHandler = () => {
+      setCollapsed(!collapsed)
+   }
    return (
      <div>
-        <div>{}</div>
-        {props.items.map(i => <div>{i.title}</div>)}
+        <div onClick={collapsedHandler}>{titleValue}</div>
+        {collapsed && props.items.map(i => <div onClick={selectedName}>{i.title}</div>)}
      </div>
    )
 }
