@@ -1,4 +1,5 @@
-import {useRef, useState} from "react";
+import {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
+import {actions} from "@storybook/addon-actions";
 
 export default {
    title: 'input'
@@ -35,4 +36,53 @@ export const GetValueOfUncontrolledInputBButtonPress = () => {
       {value}
    </>
 
+}
+
+export const ConroledInput = () => {
+   const [value, setValue] = useState('')
+
+   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+      setValue(e.currentTarget.value)
+   }
+
+   return <input
+     value={value}
+     onChange={onChangeInput}
+
+   />
+}
+
+export const ConroledCheakbox = () => {
+   const [value, setValue] = useState(true)
+
+   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+      setValue(e.currentTarget.checked)
+   }
+
+   return <input
+     type={"checkbox"}
+     checked={value}
+     onChange={onChangeInput}
+
+   />
+}
+
+export const ConroledSelected = () => {
+   const [value, setValue] = useState<string | undefined>(undefined)
+
+   const onChangeInput = (e: ChangeEvent<HTMLSelectElement>) => {
+      setValue(e.currentTarget.value)
+   }
+
+   return <>
+      <select
+        value={value}
+        onChange={onChangeInput}
+      >
+         <option>none</option>
+         <option value={'1'}>Minsk</option>
+         <option value={'2'}>Moscow</option>
+         <option value={'3'}>Kiev</option>
+      </select>
+   </>
 }
