@@ -4,6 +4,9 @@ type AccordionPropsType = {
    titleValue: string
    collapsed: () => void
    accordionCollapsed: boolean
+   items: Array<{ title: string, value: any }>
+   onClick: (value: any) => void
+
 }
 
 function Accordion(props: AccordionPropsType) {
@@ -11,21 +14,29 @@ function Accordion(props: AccordionPropsType) {
    return (
      <div>
         <AccordionTitle collapsed={props.collapsed} title={props.titleValue}/>
-        {!props.accordionCollapsed && <AccordionBody/>}
+        {!props.accordionCollapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
      </div>
    )
 
 
 }
 
-function AccordionBody() {
+type AccordionBodyPropsType = {
+   items: Array<{ title: string, value: any }>
+   onClick: (value: any) => void
+
+}
+
+function AccordionBody(props: AccordionBodyPropsType) {
    return (
      <div>
         <ul>
-           <li>1</li>
-           <li>2</li>
-           <li>3</li>
-           <li>3</li>
+           {props.items.map((item, index) => <li
+             onClick={() => {
+                props.onClick(item.value)
+             }}
+             key={index}
+           >{item.title}</li>)}
         </ul>
      </div>
    )
