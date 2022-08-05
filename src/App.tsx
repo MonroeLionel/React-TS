@@ -28,12 +28,13 @@ function App() {      //компонента должна быть написа�
         {/*<PageTitle title={"this is APP component"}/>*/}
         {/*<PageTitle title={" APP "}/>*/}
         {/*<UncontrolledRating value={2}/>*/}
-        <Accordion
-          titleValue={"accordionCollapsed"}
-          accordionCollapsed={accordionCollapsed}
-          collapsed={() => {
-             setAccordionCollapsed(!accordionCollapsed)
-          }}/>
+        {/*<Accordion*/}
+
+        {/*  titleValue={"accordionCollapsed"}*/}
+        {/*  accordionCollapsed={accordionCollapsed}*/}
+        {/*  collapsed={() => {*/}
+        {/*     setAccordionCollapsed(!accordionCollapsed)*/}
+        {/*  }}/>*/}
         {/*<Accordion titleValue={"User"} collapsed={true}/>*/}
         <UncontrolledRating/>
         {/*<Rating value={0}/>*/}
