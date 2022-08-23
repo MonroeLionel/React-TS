@@ -71,3 +71,39 @@ export const Example1 = () => {
       <Users users={newArray}/>
    </>
 }
+
+
+export const LikeUseCallback = () => {
+   console.log("likeUseCallback")
+   const [counter, setCounter] = useState(0)
+   const [books, setBooks] = useState(["React", "JS", "HTML"])
+
+   const addBook = () => {
+      const newUsers = [...books, "Angular" + new Date().getTime()]
+      setBooks(newUsers)
+   }
+
+   const newArray = useMemo(() => {
+      return books.filter(u => u.toLowerCase().indexOf("a") > -1)
+   }, [books])
+   return <>
+      <button onClick={() => {
+         setCounter(counter + 1)
+      }}>+
+      </button>
+
+      {counter}
+      <Book addBook={addBook} books={newArray}/>
+   </>
+}
+
+const BooksSecret = (props: { books: Array<string>; addBook: () => void }) => {
+   console.log('BooksSecret')
+   return <div>
+      <button onClick={props.addBook}>book</button>
+
+      {props.books.map((book, i) => <div key={i}>{book}</div>)}
+   </div>
+}
+
+const Book = React.memo(BooksSecret)
