@@ -44,3 +44,29 @@ export const Example1 = () => {
 
    </>
 }
+
+export const SetTimeoutExample = () => {
+   console.log("SetTimeoutExample")
+
+
+   const [counter, setCounter] = useState(1)
+   const [timer, setTimer] = useState(1)
+
+
+   useEffect(() => {
+      setInterval(() => {
+         // setTimer(timer + 1) // работать е будет т.к. берет из замыкание а там всегда один
+         setTimer(state => state + 1) // работает
+      }, 1000)
+
+   }, [])
+
+   return <>
+      Hello, {counter} timer-{timer}
+      <button onClick={() => {
+         setCounter(counter + 1)
+      }}>+
+      </button>
+
+   </>
+}
